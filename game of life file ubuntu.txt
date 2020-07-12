@@ -1,0 +1,25 @@
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install openjdk-8-jdk  wget unzip zip -y
+
+RUN mkdir -p /opt/tomcat
+WORKDIR /opt/tomcat
+
+RUN wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.zip
+
+
+RUN wget --user=satish --password=satish123$ http://15.206.88.188:8080/job/maven%207/ws/gameoflife-web/target/gameoflife.war
+
+RUN cp /opt/tomcat/vprofile-v1.war /opt/tomcat/apache-tomcat-8.5.43/webapps/vprofile.war
+
+WORKDIR /opt/tomcat/apache-tomcat-8.5.43/bin
+
+RUN chmod 777 *
+
+# CMD ./startup.sh
+CMD ["/opt/tomcat/apache-tomcat-8.5.43/bin/catalina.sh", "run"]
+
+EXPOSE 8080
+
+
