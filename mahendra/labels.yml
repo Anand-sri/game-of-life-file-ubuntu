@@ -1,0 +1,50 @@
+kubernates apiVersion: v1
+kind: Pod
+metadata:
+  name: anand1
+  labels:
+    name: project1
+spec:
+  containers:
+  - name: anand1
+    image: httpd
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+      ---
+kubernates apiVersion: v1
+kind: Pod
+metadata:
+  name: anand2
+  labels:
+    name: project2
+spec:
+  containers:
+  - name: anand2
+    image: httpd
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+      ---
+ kubernates apiVersion: v1
+kind: Pod
+metadata:
+  name: anand3
+  labels:
+    name: project3
+spec:
+  containers:
+  - name: anand3
+    image: httpd
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
