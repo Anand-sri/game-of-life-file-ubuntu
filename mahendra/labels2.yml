@@ -1,50 +1,54 @@
-kubernates apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: anand1
   labels:
-    name: project1
+    project: X1 
 spec:
   containers:
   - name: anand1
     image: httpd
     resources:
       limits:
-        memory: "128Mi"
-        cpu: "500m"
+        memory: "64Mi"
+        cpu: "50m"
     ports:
       - containerPort: 80
-      ---
-kubernates apiVersion: v1
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: anand2
   labels:
-    name: project2
+    project: X2 
 spec:
   containers:
   - name: anand2
     image: httpd
     resources:
       limits:
-        memory: "128Mi"
-        cpu: "500m"
+        memory: "64Mi"
+        cpu: "50m"
     ports:
       - containerPort: 80
-      ---
- kubernates apiVersion: v1
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: anand3
   labels:
-    name: project3
+    project: X3 
 spec:
   containers:
   - name: anand3
     image: httpd
     resources:
       limits:
-        memory: "128Mi"
-        cpu: "500m"
+        memory: "64Mi"
+        cpu: "50m"
     ports:
       - containerPort: 80
+
+
+
+
