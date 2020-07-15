@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: httpdns
 spec:
-  selector:
+  nodeSelector:
     anand: "true"
   containers:
   - name: httpd
