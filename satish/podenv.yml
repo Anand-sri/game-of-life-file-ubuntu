@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tolerated
+  name: httpd-env
   labels:
-    name: httpd
+    name: env
 spec:
-  tolerations:
-  - key: "security"
-    operator: "Equal"
-    value: "none"
-    effect: "NoSchedule"
   containers:
   - name: httpd
     image: httpd
+    env:
+      - name: project-1
+        value: xyz
+        name: project-2
+        value: pli
     resources:
       limits:
         memory: "64Mi"
