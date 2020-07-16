@@ -11,7 +11,7 @@ spec:
     env:
       - name: project-1
         value: xyz
-        name: project-2
+      - name: project-2
         value: pli
     resources:
       limits:
