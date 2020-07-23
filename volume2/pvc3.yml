@@ -20,8 +20,8 @@ spec:
     image: centos
     command: ["sleep" ,"30000"]
     volumeMounts:
-    - name: mariadb-pvc
-      mountPath: "/opt/data"
+      name: mariadb-pvc
+    - mountPath: "/opt/data"
   volumes:
     - name: mariadb-pvc
       PersistentVolumeClaim:
