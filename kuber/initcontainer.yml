@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: initdemo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: 
+  resources:
+    requests:
+      storage: 30Gi
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-demo
+spec:
+  volumes:
+    - name: initdemo
+      persistentVolumeClaim:
+        claimName: initdemo
+  containers:
+    - name: demo
+      image: centos
+      command: ["sleep" ,"30000"]
+      volumeMounts:
+        - mountPath: "opt/data"
+          name: initdemo
+  initContainers:
+   - name: init-myservice
+     image: centos
+     command: ["touch" ,"opt/demo"]
+     volumeMounts:
+       - mountPath: "opt/data"
+         name: initdemo
