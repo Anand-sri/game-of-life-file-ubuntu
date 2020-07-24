@@ -23,14 +23,14 @@ spec:
   containers:
     - name: demo
       image: centos
-      command: ["sleep" ,"30000"]
+      command: ["sleep", "30000"]
       volumeMounts:
-        - mountPath: "opt/data"
+        - mountPath: "/opt/data"
           name: initdemo
   initContainers:
    - name: init-myservice
      image: centos
-     command: ["touch" ,"opt/demo"]
+     command: ["touch", "/opt/demo"]
      volumeMounts:
-       - mountPath: "opt/data"
+       - mountPath: "/opt/data"
          name: initdemo
