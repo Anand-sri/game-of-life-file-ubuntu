@@ -1,15 +1,24 @@
+apiVersion: apps/v1beta1 
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: 
+  resources:
+    requests:
+      storage: 30Gi
+---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "MYAPP"
-  namespace: default
-  labels:
-    app: "MYAPP"
+  name: Pvc-demo
 spec:
   containers:
-  - name: MYAPP
-    image: "debian-slim:latest"
-    resources:
-      limits:
-        cpu: "200m"
-        memory: "128m"
+  - name: demo
+    image: centos
+    command: ["sleep" ,"30000"]
+    volumeMounts:
+    - name: mariadb-pvc
+      mountPath: "/opt/data"
