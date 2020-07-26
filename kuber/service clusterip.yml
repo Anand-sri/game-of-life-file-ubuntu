@@ -10,11 +10,11 @@ spec:
     image: httpd
     resources:
       limits:
-      memory: "128Mi"
-      cpu: "100m"
+        memory: "128Mi"
+        cpu: "100m"
       requests:
-      memory: "64Mi"
-      cpu: "100m"
+        memory: "64Mi"
+        cpu: "100m"
 ---
 
 apiVersion: v1
