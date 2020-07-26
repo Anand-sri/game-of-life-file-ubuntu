@@ -5,4 +5,4 @@ metadata:
 spec:
   selector: 
   type: ExternalName
-  ExternalName: google.com
+  externalName: google.com
