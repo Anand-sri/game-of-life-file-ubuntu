@@ -16,7 +16,6 @@ spec:
         memory: "64Mi"
         cpu: "100m"
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
