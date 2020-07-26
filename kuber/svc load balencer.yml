@@ -19,9 +19,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: anand-service
+  name: tmservice
 spec:
-  type: loadBalencer
+  type: LoadBalencer
   selector:
     app: httpd
   ports:
