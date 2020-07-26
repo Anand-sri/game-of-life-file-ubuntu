@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-demo
+  label:
+    app: httpd
+spec:
+  containers:
+    - name: demo
+      image: httpd
+      resources:
+      limits:
+        memory: "128Mi"
+      requests:
+        memory: "64Mi"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: anand-service
+spec:
+  selector:
+    app: httpd
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+      
