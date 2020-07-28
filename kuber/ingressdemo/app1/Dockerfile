@@ -1,4 +1,4 @@
 FROM    centos
 RUN     yum install httpd -y
-RUN     echo '<hI>welcome to APP1 Application</hI>' >/var/www/html/Index.html
+RUN     echo '<hl>welcome to APP1 Application</hl>' >/var/www/html/index.html
 CMD     httpd -DFOREGROUND
