@@ -8,6 +8,7 @@ spec:
   containers:
   - name: demo
     image: anandsatish/nihal
+    
     resources:
       limits:
         memory: "128Mi"

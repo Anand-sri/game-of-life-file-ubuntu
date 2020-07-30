@@ -1,0 +1,52 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: myservice
+spec:
+  selector:
+    app: my-service
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 80
+      # Port to forward to inside the pod
+      targetPort: 8080
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gameoflife
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-service
+    spec:
+      containers:
+        - name: my-service
+          image: anandsatish/nihal
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
+
+--- 
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /gameoflife
+        backend:
+          serviceName: myservice
+          servicePort: 80
